@@ -40,9 +40,6 @@ class HomeScreen extends Component {
       <div className="body">
         <NavBar menuButton={true} productFilter={this.productFilter} menuTitle="TemplateJS" />
         <HomePage productFilteredBy={this.state.productFilteredBy} />
-        <div>
-          <Button onClick={this.loadProduct}>load produit</Button>
-        </div>
       </div>
     );
   }
