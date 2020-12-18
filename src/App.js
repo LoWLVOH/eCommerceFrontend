@@ -14,6 +14,9 @@ import dotenv from "dotenv";
 import HttpsRedirect from "react-https-redirect";
 
 import HomeScreen from "./components/screens/HomeScreen";
+import CheckoutScreen from "./components/screens/CheckoutScreen";
+import ProductScreen from "./components/screens/ProductScreen";
+import CheckoutValidationScreen from "./components/screens/CheckoutValidationScreen";
 
 dotenv.config();
 
@@ -28,10 +31,12 @@ const composeEnhancers = composeWithDevTools({
  * persist Config
  */
 const persistConfig = {
-  key: "root",
+  key: "eCommerceRoot",
   storage,
-  whitelist: ["user"],
+  // whitelist: ["user"],
+  blacklist: ["product"],
   version: 1,
+  // rehydrate: false,
 };
 
 //Thème global
@@ -69,6 +74,15 @@ export default class App extends React.Component {
                 {/* Une fois la <Route> activée grâce à se paramètre path la route va activer le rendu d’un composant. */}
                 <div>
                   <Route exact path="/" component={HomeScreen} />
+                  <Route exact path="/Checkout" component={CheckoutScreen} />
+                  <Route
+                    path="/ProductScreen/:name"
+                    component={ProductScreen}
+                  />
+                  <Route
+                    path="/CheckoutValidation"
+                    component={CheckoutValidationScreen}
+                  />
                 </div>
               </Router>
             </HttpsRedirect>

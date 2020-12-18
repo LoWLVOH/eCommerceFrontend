@@ -8,6 +8,8 @@ import { combineReducers } from "redux";
  */
 
 import user from "./user";
+import product from "./product";
+import cart from "./cart";
 
 /**
  * App Reducer
@@ -15,6 +17,8 @@ import user from "./user";
  */
 const rootReducer = combineReducers({
   user,
+  product,
+  cart,
 });
 
 export default rootReducer;
